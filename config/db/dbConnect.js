@@ -6,24 +6,12 @@ import util from 'util';
 
 // Remote host
 let dbConfig = {
-    host : "207.174.215.236",
-    //port : "3306",
-    user : "algorzpv_itian",
-    password : "itian",
-    database : "algorzpv_itian",
-    multipleStatements: true,
-    waitForConnections: true,
-    //connectionLimit: 10,
-    queueLimit: 0
+
 }; 
 
 // Local host
 /* const dbConfig = {
-    host : "localhost",
-    user : "root",
-    //password : "it_qa",
-    database : "lorryreceipt",
-    multipleStatements: true
+
 } */  
 
 
