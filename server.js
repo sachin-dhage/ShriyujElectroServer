@@ -11,16 +11,6 @@ import requestIP from 'request-ip';
 //import iplocation from 'iplocation';
 //import fetch from "node-fetch";
 
-// Settings for free Heroku Account to keep the app alive 
-
-import https from "https";
-setInterval(function() {
-    //console.log(`pining server...`);    
-    https.get("https://shriyujelectro.herokuapp.com/shriyuj");
-}, 1500000); // 1 minutes = 60000 ms
-
-// Heroku Settings ends
-
 
 // Import GraphQL types
 import graphQLTypes from './graphql/types';
