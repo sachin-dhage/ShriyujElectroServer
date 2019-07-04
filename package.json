@@ -1,0 +1,46 @@
+{
+  "name": "shriyujelectro",
+  "version": "1.0.0",
+  "description": "Raspberry Pi GUI with GPIO",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --exec babel-node server.js",
+    "heroku-postbuild": "npm install"
+  },
+  "keywords": [
+    "Raspberry Pi",
+    "GPIO"
+  ],
+  "author": "Discriminant Technologies",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server": "^2.4.6",
+    "apollo-server-express": "^2.4.6",
+    "bcrypt": "^3.0.4",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "event-stream": "^4.0.1",
+    "exceljs": "^1.7.0",
+    "express": "^4.16.4",
+    "graphql": "^14.1.1",
+    "jsonwebtoken": "^8.5.0",
+    "lodash": "^4.17.11",
+    "merge-graphql-schemas": "^1.5.8",
+    "moment": "^2.24.0",
+    "multer": "^1.4.1",
+    "mysql": "^2.16.0",
+    "mysql2": "^1.6.5",
+    "nodemailer": "^4.7.0",
+    "onoff": "^4.1.2",
+    "request-ip": "^2.1.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "nodemon": "^1.18.10"
+  },
+  "engines": {
+    "node": "8.11.1"
+  }
+}
