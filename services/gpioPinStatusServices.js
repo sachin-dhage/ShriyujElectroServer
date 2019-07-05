@@ -27,6 +27,8 @@ const getGPIOPinStatus = async (root, args, context, info) =>
         // Check for authorized user
         //loggedInUser = await authorizedUser(root, args, context, info);
         
+        console.log(`# Is GPIO Accessible:: ${Gpio.accessible}`);
+
         let gpiopin = "";
         let status = "";        
         let result = [];
@@ -35,13 +37,16 @@ const getGPIOPinStatus = async (root, args, context, info) =>
 
         for(let i = 0; i < gpiopins.length; i++)
         {
-            console.log(`Getting GPIO Pin ${gpiopins[i]} status`);
+            console.log(`Getting GPIO Pin ${gpiopins[i]} status..`);
             
             //Use GPIO pin as specified for output
             gpiopin = new Gpio(gpiopins[i], 'out');//.writeSync(1);
 
             // Get realtime status of GPIO Pin
-            status = gpiopin.readSync() === 1 ? 'ON' : 'OFF';
+            //status = gpiopin.readSync() === 1 ? 'ON' : 'OFF';
+            status = gpiopin.readSync();
+
+            console.log(`Realtime GPIO Pin ${gpiopins[i]} status :: ${status}`);
 
             result.push({
                 GPIOPIN	:	gpiopins[i],
@@ -70,6 +75,8 @@ const setGPIOPinStatus = async (root, args, context, info) =>
         // Check for authorized user
         //loggedInUser = await authorizedUser(root, args, context, info);
         
+        console.log(`# Is GPIO Accessible:: ${Gpio.accessible}`);
+
         let gpiopin = "";
         let status = "";
         let result = [];
@@ -78,19 +85,24 @@ const setGPIOPinStatus = async (root, args, context, info) =>
         
         for(let i = 0; i < gpiopins.length; i++)
         {            
-            console.log(`Setting GPIO Pin ${gpiopins[i].GPIOPIN} to ${gpiopins[i].STATUS}`);
+            console.log(`Setting GPIO Pin ${gpiopins[i].GPIOPIN} to ${gpiopins[i].STATUS}..`);
 
             //Use GPIO pin as specified for output
             gpiopin = new Gpio(gpiopins[i].GPIOPIN, 'out');//.writeSync(1);
             
             // If STATUS = ON the set pin status to HIGH else LOW
-            status = gpiopins[i].STATUS == 'ON' ? Gpio.HIGH : Gpio.LOW;
+            status = gpiopins[i].STATUS === 'ON' ? Gpio.HIGH : Gpio.LOW;
             
+            console.log(`Setting status to ${status}..`);
+
             // Change the status
             gpiopin.writeSync(status);
 
             // Get realtime status of GPIO Pin
-            status = gpiopin.readSync() === 1 ? 'ON' : 'OFF';
+            //status = gpiopin.readSync() === 1 ? 'ON' : 'OFF';
+            status = gpiopin.readSync();
+            
+            console.log(`Realtime GPIO Pin ${gpiopins[i].GPIOPIN} status :: ${status}`);
 
             result.push({
                 GPIOPIN	:	gpiopins[i].GPIOPIN,
