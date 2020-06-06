@@ -15,7 +15,7 @@
   "author": "Discriminant Technologies",
   "license": "ISC",
   "dependencies": {
-    "apollo-server": "^2.4.6",
+    "apollo-server": "^2.14.2",
     "apollo-server-express": "^2.4.6",
     "bcrypt": "^3.0.4",
     "body-parser": "^1.18.3",
